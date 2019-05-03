@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Instituto de Computação</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align: right;
+            margin-right: 4px;
+        }
+    </style>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <form name="form1">
+        <div>
+            <label>Informe o raio</label>
+            <input name="raio" type="text">
+            <button id="btn">OK</button>
+        </div>
+        <div>
+            <label>Área do círculo</label>
+            <input id="areaInp" type="text">
+        </div>
+        <div>
+            <label>Circuferencia</label>
+            <input id="circuferenciaInp" type="text">
+        </div>
+
+    </form>
+    <script>
+        var form1 = document.form1;
+        btn.onclick = function () {
+            var raio = form1.raio.value;
+            var area = 3.14 * raio * raio;
+            var circuferencia = 2 * 3.14 * raio;
+            areaInp.value = (area).toFixed(2);
+            circuferenciaInp.value = (circuferencia).toFixed(2);
+            return false;
+        };
+    </script>
+</body>
+
+</html>
