@@ -1,0 +1,4 @@
+1 - Está faltando a tag <HTML> que deveria ser incluída em baixo de <!DOCTYPE html> e fechar a tag com </HTML> no final do código
+2 - A tag <head></head> está dentro do <body>, ela deve ser movida junto com o <title> e o primeiro <style> para cima do <body> e dentro do <HTML>
+3 - A segunda tag <style></style> deve ser substituida por uma tag <script></script>, pois se trata de código javaScript
+4 - Está faltando fechar a tag <span> dentro da tag <p>

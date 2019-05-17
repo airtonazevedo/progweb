@@ -1,0 +1,1 @@
+Closure é uma forma de proteger os dados, como um encapsulamento, no exemplo de código a váriavel baz fica acessível somente através da função, outras partes de códgo não podem manipular a variável diretamente 
