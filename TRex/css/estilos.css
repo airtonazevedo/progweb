@@ -27,7 +27,7 @@
     width: 47px;
     height: 17px;
     background-image: url(sprites.png);
-    background-position: -86px 2px;
+    background-position: -86px -2px;
     position: absolute;
     z-index: 1;
 }
@@ -36,7 +36,26 @@
     width: 46px;
     height: 40px;
     background-image: url(sprites.png);
-    background-position: -134px 2px;
+    background-position: -134px -2px;
+    position: absolute;
+    z-index: 1;
+}
+
+.cacto {
+    width: 17px;
+    height: 48px;
+    background-image: url(sprites.png);
+    background-position: -228px -2px;
+    position: absolute;
+    z-index: 1;
+}
+
+
+.pontos {
+    width: 9px;
+    height: 11px;
+    background-image: url(sprites.png);
+    background-position: -484px -2px;
     position: absolute;
     z-index: 1;
 }
