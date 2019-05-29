@@ -32,7 +32,11 @@
     z-index: 1;
 }
 
-body {
-   /* filter: invert(100%);
-    background-color: black;*/
+.passaro {
+    width: 46px;
+    height: 40px;
+    background-image: url(sprites.png);
+    background-position: -134px 2px;
+    position: absolute;
+    z-index: 1;
 }
