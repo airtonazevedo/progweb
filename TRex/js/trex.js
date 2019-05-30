@@ -1,6 +1,6 @@
 (function () {
 
-    var FPS = 60;
+    var FPS = 60 //60;
     const dinoCorreFPS = 10;
     const dinoPulaFPS = 50;
     const PROB_NUVEM = 1;
@@ -106,6 +106,14 @@
         }
     }
 
+    Dino.prototype.getPosition = function () {
+        return parseInt(this.element.style.bottom);
+    }
+
+    Dino.prototype.getStatus = function () {
+        return this.status;
+    }
+
     function Nuvem() {
         this.element = document.createElement("div");
         this.element.className = "nuvem";
@@ -125,6 +133,7 @@
     class Obstaculo {
         constructor(tipo) {
             this.tipo = tipo;
+            this.codigo = 0;
             this.element = document.createElement("div");
             this.element.style.right = "0px";
             deserto.element.appendChild(this.element);
@@ -145,6 +154,44 @@
         getTipo() {
             return this.tipo;
         }
+
+        detectaColisao(dinoPositiony, dinoSatus) {
+            //console.log(parseFloat(this.element.style.width) + parseFloat(this.element.style.right) );
+            if (parseFloat(this.element.style.width) + parseFloat(this.element.style.right) > 471 && parseFloat(this.element.style.right) < 491) {
+                if (this.codigo == 1) {
+
+                    if (dinoPositiony < 32) {
+                        console.log("morreu");
+                        return "morreu";
+                    }
+                }
+                else if (this.codigo == 2) {
+                    if (dinoPositiony < 42) {
+                        console.log("morreu");
+                        return "morreu";
+                    }
+                }
+                else if (this.codigo == 3) {
+                    if (dinoPositiony < 38) {
+                        console.log("morreu");
+                        return "morreu";
+                    }
+                }
+                else if (this.codigo == 4) {
+                    if (dinoPositiony < 52 && dinoSatus != 3) {
+                        console.log("morreu");
+                        return "morreu";
+                    }
+                }
+                else if (this.codigo == 5) {
+                    if (dinoSatus == 1 || dinoSatus == 2) {
+                        console.log("morreu");
+                        return "morreu";
+                    }
+                }
+            }
+            return "";
+        }
     }
 
     class Cacto extends Obstaculo {
@@ -159,44 +206,52 @@
                 this.element.style.backgroundPositionX = "-407px"
                 this.element.style.width = '75px';
                 this.element.style.top = "97px";
+                this.codigo = 2;
             }
             else if (aux > 0.8) {
                 //3 cactos misturados
                 this.element.style.backgroundPositionX = "-431px"
                 this.element.style.width = '51px';
                 this.element.style.top = "97px";
+                this.codigo = 2;
             }
             else if (aux > 0.7) {
                 //2 cactos grandes
                 this.element.style.backgroundPositionX = "-332px"
                 this.element.style.width = '50px';
                 this.element.style.top = "97px";
+                this.codigo = 2;
             }
             else if (aux > 0.6) {
                 //Quatro cactos pequenos
                 this.element.style.backgroundPositionX = "-228px"
                 this.element.style.width = '68px';
+                this.codigo = 1;
             }
             else if (aux > 0.5) {
                 //3 cactos pequenos
                 this.element.style.backgroundPositionX = "-228px"
                 this.element.style.width = '51px';
+                this.codigo = 1;
             }
             else if (aux > 0.35) {
                 //1 cacto grande
                 this.element.style.backgroundPositionX = "-332px"
                 this.element.style.width = '25px';
                 this.element.style.top = "97px";
+                this.codigo = 1;
             }
             else if (aux > 0.2) {
                 //2 cactos pequenos
                 this.element.style.backgroundPositionX = "-228px"
                 this.element.style.width = '34px';
+                this.codigo = 1;
             }
             else {
                 //1 cacto pequeno
                 this.element.style.backgroundPositionX = "-228px"
                 this.element.style.width = '17px';
+                this.codigo = 1;
             }
         }
     }
@@ -208,15 +263,21 @@
                 'voa1': '-134.8px',
                 'voa2': '-180.8px',
             };
-
+            this.element.style.width = "46px"
             this.element.className = "passaro";
             var aux = Math.random();
-            if (aux <= 0.33)
+            if (aux <= 0.33) {
                 this.element.style.top = "84px";
-            else if (aux >= 0.66)
+                this.codigo = 4;
+            }
+            else if (aux >= 0.66) {
                 this.element.style.top = "100px";
-            else
+                this.codigo = 3;
+            }
+            else {
                 this.element.style.top = "54px";
+                this.codigo = 5;
+            }
 
         }
 
@@ -361,6 +422,9 @@
         }
         obstaculos.forEach(function (p) {
             p.mover();
+            if (p.detectaColisao(dino.getPosition(), dino.getStatus()) == "morreu") {
+                jogo.pause();
+            }
 
         });
 
