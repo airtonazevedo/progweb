@@ -311,7 +311,9 @@
             this.pontuacao5.style.right = "40px";
             this.pontos = 0;
             this.frames = 0;
-
+            this.gameover = document.createElement("div");
+            this.gameover.className = "gameOver";
+            deserto.element.appendChild(this.gameover);   
         }
 
         pontua() {
@@ -378,6 +380,14 @@
                 clearInterval(dinoPulaLoop);
                 clearInterval(anoitecer);
             }
+        }
+
+        gameover() {
+            this.status = "gameover";
+            clearInterval(gameLoop);
+            clearInterval(dinoCorreLoop);
+            clearInterval(dinoPulaLoop);
+            clearInterval(anoitecer);
         }
     }
 
