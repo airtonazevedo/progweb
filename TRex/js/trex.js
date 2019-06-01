@@ -66,6 +66,7 @@
             'pulando': '-678px',
             'correrAbaixado1': '-942px',
             'correrAbaixado2': '-1001px',
+            'morto' : '-40px'
         };
         this.status = 0; // 0:correndo; 1:subindo; 2: descendo; 3: agachado
         this.alturaMaxima = "88px";
@@ -113,6 +114,12 @@
     Dino.prototype.getStatus = function () {
         return this.status;
     }
+
+    Dino.prototype.morreu = function () {
+        this.element.style.width = "44px";
+        this.element.style.backgroundPositionX = this.sprites.morto;
+    }
+
 
     function Nuvem() {
         this.element = document.createElement("div");
@@ -313,7 +320,15 @@
             this.frames = 0;
             this.gameover = document.createElement("div");
             this.gameover.className = "gameOver";
-            deserto.element.appendChild(this.gameover);   
+            this.gameover.style.display = "none";
+            deserto.element.appendChild(this.gameover);
+            this.restart = document.createElement("div");
+            this.restart.className = "restart";
+            this.restart.style.display = "none";
+            this.restart.addEventListener('click', function (e) {
+                location.reload();
+            });
+            deserto.element.appendChild(this.restart);
         }
 
         pontua() {
@@ -382,8 +397,11 @@
             }
         }
 
-        gameover() {
+        morre() {
             this.status = "gameover";
+            this.gameover.style.display = "initial";
+            this.restart.style.display = "initial";
+            dino.morreu();
             clearInterval(gameLoop);
             clearInterval(dinoCorreLoop);
             clearInterval(dinoPulaLoop);
@@ -433,7 +451,7 @@
         obstaculos.forEach(function (p) {
             p.mover();
             if (p.detectaColisao(dino.getPosition(), dino.getStatus()) == "morreu") {
-                jogo.pause();
+                jogo.morre();
             }
 
         });

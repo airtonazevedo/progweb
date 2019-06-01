@@ -1,7 +1,8 @@
 .deserto {
     width: 500px;
     height: 150px;
-    position: relative;
+    position: absolute;
+    
 }
 
 .chao {
@@ -58,4 +59,28 @@
     background-position: -484px -2px;
     position: absolute;
     z-index: 1;
+}
+
+.gameOver {
+    width: 191px;
+    height: 11px;
+    background-image: url(sprites.png);
+    background-position: -484px -15px;
+    position: absolute;
+    top: 50px;
+    left: 154.5px;
+    z-index: 2;
+    display: initial;
+}
+
+.restart {
+    width: 36px;
+    height: 31px;
+    background-image: url(sprites.png);
+    background-position: -2px -2px;
+    position: absolute;
+    top: 70px;
+    left: 232px;
+    z-index: 2;
+    display: initial;
 }
