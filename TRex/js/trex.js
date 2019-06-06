@@ -67,6 +67,7 @@
             'correrAbaixado1': '-942px',
             'correrAbaixado2': '-1001px',
             'morto' : '-40px'
+
         };
         this.status = 0; // 0:correndo; 1:subindo; 2: descendo; 3: agachado
         this.alturaMaxima = "88px";
@@ -75,6 +76,7 @@
         this.element.style.backgroundPositionX = this.sprites.correr1;
         this.element.style.bottom = "0px";
         deserto.element.appendChild(this.element);
+        this.element.style.backgroundPositionX = this.sprites.morto;
     }
 
     Dino.prototype.correr = function () {
