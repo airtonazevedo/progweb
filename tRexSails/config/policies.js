@@ -22,5 +22,11 @@ module.exports.policies = {
   'legal/view-terms': true,
   'legal/view-privacy': true,
   'deliver-contact-form-message': true,
+  'curso/index': true,
+  'curso/read': true,
+  'curso/create': true,
+  'curso/update': true,
+  'curso/delete': true,
+  
 
 };

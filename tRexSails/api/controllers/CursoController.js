@@ -6,10 +6,22 @@
  */
 
 module.exports = {
-  index: async function (req,res) {},
-  create: async function (req,res) {},
-  read: async function (req,res) {},
-  update: async function (req,res) {},
-  delete: async function (req,res) {},
-      
+
+    index: async function (req,res) {
+        console.log("merda");
+        var cursos = await Curso.find();
+
+        res.view('curso/index', {cursos:cursos});
+    },
+
+    create: async function (req,res) {},
+
+    read: async function (req,res) {
+        res.end(req.param("cursoId"));
+    },
+
+    update: async function (req,res) {},
+
+    delete: async function (req,res) {}
+  
 };
