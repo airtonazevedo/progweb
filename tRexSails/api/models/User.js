@@ -165,6 +165,10 @@ without necessarily having a billing card.`
     //  ╩ ╩╚═╝╚═╝╚═╝╚═╝╩╩ ╩ ╩ ╩╚═╝╝╚╝╚═╝
     // n/a
 
+    curso: {
+      model: 'Curso',
+    }
+
   },
 
 

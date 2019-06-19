@@ -1,0 +1,24 @@
+<div class="container mt-4">
+    <div class="row">
+        <div class="col">
+            <h1>Selecionar Curso</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <form action="/account/curso" method="POST">
+                <div class="form-group">
+                    <label for="curso">Informe o curso</label>
+                    <select class="form-control " id="curso" name="curso">
+                        <% cursos.forEach(function(curso) {  %>
+                            <option value= "<%= curso.id %>" > <%= curso.nome %></option>
+                        <%})%>
+                    </select>
+                </div>
+                <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+                <input class="btn btn-outline-info" type="submit" value="Cancelar">
+                <input class="btn btn-dark" type="submit" value="Salvar">
+            </form>
+        </div>
+    </div>
+</div>

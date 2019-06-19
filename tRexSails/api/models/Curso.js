@@ -30,8 +30,11 @@ module.exports = {
       description: "descricao do curso",
     },
 
-
+    alunos: {
+      collection: 'User',
+      via: 'curso'
+    }
   },
-
+  
 
 };
