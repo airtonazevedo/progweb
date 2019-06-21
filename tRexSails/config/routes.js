@@ -13,7 +13,7 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
+  //'GET /':                   { action: 'view-homepage-or-redirect' },
   'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
   'GET /sobre':                { action:   'view-sobre' },
@@ -71,4 +71,6 @@ module.exports.routes = {
   'GET /curso/update/:cursoId': { action: 'curso/update' },
   'GET /curso/delete/:cursoId': { action: 'curso/delete' },
 
+  'GET /curso/delete/:cursoId': { action: 'curso/delete' },
+  'GET /': { action: 'game/trex' }
 };

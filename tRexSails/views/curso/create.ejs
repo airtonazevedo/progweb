@@ -12,17 +12,18 @@
   <form method="POST" action="/curso/create">
     <div class="form-group">
       <label for="nome">Nome do curso</label>
-      <input type="text" class="form-control" id="nome" maxlength="64" placeholder="Nome do curso">
+      <input type="text" class="form-control" id="nome" name="nome" maxlength="64" placeholder="Nome do curso">
     </div>
     <div class="form-group">
       <label for="sigla">Sigla do curso</label>
-      <input type="text" class="form-control" id="sigla" maxlength="4" placeholder="Sigla do curso">
+      <input type="text" class="form-control" id="sigla" name="sigla" maxlength="4" placeholder="Sigla do curso">
     </div>
     <div class="form-group">
       <label for="descricao">Descrição</label>
-      <textarea class="form-control" id="descricao" rows="3"></textarea>
+      <textarea class="form-control" id="descricao" name="descricao" rows="3"></textarea>
     </div>
     <div class="form-group">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
       <button type="submit" class="btn btn-dark">Salvar</button>
     </div>
   </form>

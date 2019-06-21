@@ -19,7 +19,6 @@ module.exports = {
             res.view('curso/create');
         }
         else {
-            console.log("qawedqweq");
             try {
                 await Curso.create ({
                     sigla: req.body.sigla,
@@ -27,7 +26,7 @@ module.exports = {
                     descricao: req.body.descricao,
                     
                 });
-                res.redirect('curso');
+                res.redirect('/curso');
             } catch (error) {
                 res.view('curso/create' , { error : error});
             }
