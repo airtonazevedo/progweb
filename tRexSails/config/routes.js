@@ -70,7 +70,6 @@ module.exports.routes = {
   'POST /curso/create': { action: 'curso/create' },
   'GET /curso/update/:cursoId': { action: 'curso/update' },
   'GET /curso/delete/:cursoId': { action: 'curso/delete' },
-
-  'GET /curso/delete/:cursoId': { action: 'curso/delete' },
-  'GET /': { action: 'game/trex' }
+  'GET /': { action: 'game/trex' },
+  'POST /salvar-pontuacao' : {action: 'game/salvarPontuacao'},
 };

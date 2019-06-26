@@ -27,7 +27,5 @@ module.exports.policies = {
   'curso/create': true,
   'curso/update': true,
   'curso/delete': true,
-  'game/trex': true,
-  
 
 };

@@ -26,8 +26,7 @@ module.exports = {
     data: {
       type: 'string',
       description: "data da partida",
-      columnType: 'date',
-      example: '2019-05-04'
+      columnType: 'DATETIME',
     },
 
 
