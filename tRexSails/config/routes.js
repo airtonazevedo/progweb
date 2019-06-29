@@ -69,7 +69,11 @@ module.exports.routes = {
   'GET /curso/create': { action: 'curso/create' },
   'POST /curso/create': { action: 'curso/create' },
   'GET /curso/update/:cursoId': { action: 'curso/update' },
+  'POST /curso/update': { action: 'curso/update' },
   'GET /curso/delete/:cursoId': { action: 'curso/delete' },
+  'POST /curso/delete': { action: 'curso/delete' },
   'GET /': { action: 'game/trex' },
   'POST /salvar-pontuacao' : {action: 'game/salvarPontuacao'},
+  'GET /ranking' : {action: 'game/rankingindex'},
+  
 };

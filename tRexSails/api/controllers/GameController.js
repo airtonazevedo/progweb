@@ -14,27 +14,24 @@ module.exports = {
     salvarPontuacao: async function (req, res) {
         const data = new Date();
         const dia = data.getDate();
-        const mes = data.getMonth();
+        const mes = data.getMonth() + 1;
         const ano = data.getFullYear();
         const hora = data.getHours();
         const minutos = data.getMinutes();
         const segundos = data.getSeconds();
-
-       await Jogada.create({
+        const datasql = ano +'-'+mes+'-'+dia+' ' + hora + ':' + minutos + ':' + segundos;
+        await Jogada.create({
             jogador: req.me.id,
             pontuacao: req.body.pontuacao,
-            data: ano +'-'+mes+'-'+dia+' ' + hora + ':' + minutos + ':' + segundos,
+            data: datasql,
         })
     },
 
     rankingindex : async function (req, res) {
-        var jogada = await Jogada.Find();
-        jogada.forEach(element => {
-            var user = await user.Find();
-
-        });
-
-        res.view('curso/index', { cursos: cursos });
+        const sql = "select fullName, pontuacao, DATE_FORMAT(data,'%d/%m/%y %H:%i') as data from jogada, user where user.id = jogada.jogador order by pontuacao desc"
+        var rawResult = await sails.getDatastore().sendNativeQuery(sql);
+        res.view('pages/ranking', { jogadas: rawResult.rows })
+     
     },
 };
 

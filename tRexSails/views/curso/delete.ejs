@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-sm">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Cursos</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+  <form method="POST" action="/curso/delete">
+    <div class="form-group">
+      <label for="nome">Nome do curso</label>
+      <input type="text" class="form-control" id="nome" name="nome" maxlength="64" value="<%= curso.nome %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="sigla">Sigla do curso</label>
+      <input type="text" class="form-control" id="sigla" name="sigla" maxlength="4" value="<%= curso.sigla %>" disabled>
+    </div>
+    <div class="form-group">
+      <label for="descricao">Descrição</label>
+      <textarea class="form-control" id="descricao" name="descricao" rows="3" disabled><%= curso.descricao %></textarea>
+    </div>
+    <div class="form-group">
+        <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+        <input type="hidden" name="id" value="<%= curso.id %>" />
+        
+      <button type="submit" class="btn btn-dark">Remover</button>
+    </div>
+  </form>
+</div>
