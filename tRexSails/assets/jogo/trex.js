@@ -479,7 +479,6 @@
       divjogo.style.backgroundColor = "white";
       divjogo.style.filter = "";
     } else {
-      console.log("asd");
       divjogo.style.backgroundColor = "black";
       divjogo.style.filter = "invert(100%)";
     }
